@@ -1,5 +1,12 @@
 FROM python:3.10-slim-bookworm
 
+# Añadimos 'git' a la lista de instalación
+RUN apt-get update && apt-get install -y \
+    wget \
+    git \
+    libgl1 \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
 # Dependencias de sistema para OpenCV y Wget
 RUN apt-get update && apt-get install -y \
     wget \
